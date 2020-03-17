@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {color} from '../../assets/styles/color';
 
 const styles = StyleSheet.create({
+  container: {margin: 30},
   icon: {
     position: 'absolute',
     right: 20,
@@ -14,13 +15,12 @@ const styles = StyleSheet.create({
   },
   logoWrapper: {
     alignItems: 'center',
-    marginTop: 15,
   },
   textFieldWithIcon: {
     paddingRight: 40,
   },
   topSpace: {
-    marginTop: 15,
+    marginTop: 30,
   },
   error: {
     color: color.ligthRed,

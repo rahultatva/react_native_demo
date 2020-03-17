@@ -1,30 +1,25 @@
-import React from 'react';
-import {View, Image, AsyncStorage} from 'react-native';
-import _ from 'lodash';
+import React, {useEffect} from 'react';
+import {View, Image} from 'react-native';
+import {getCurrentUserSession} from '../../services/apiService';
 import styles from './styles';
 
 const SpashScreen: () => React$Node = ({navigation, route}) => {
-  let userInfo;
-  AsyncStorage.getItem('UserInfo').then(value => {
-    userInfo = JSON.parse(value);
-  });
-
-  setTimeout(() => {
-    //If user logged in than redirect to Home page else login page
-    if (userInfo && !_.isEmpty(userInfo.email)) {
-      navigation.reset({
-        index: 0,
-        routes: [
-          {
-            name: 'App',
-          },
-        ],
+  useEffect(() => {
+    getCurrentUserSession()
+      .then(() => {
+        navigation.reset({
+          index: 0,
+          routes: [
+            {
+              name: 'App',
+            },
+          ],
+        });
+      })
+      .catch(() => {
+        navigation.replace('Login');
       });
-      //AsyncStorage.removeItem('UserInfo');
-    } else {
-      navigation.replace('Login');
-    }
-  }, 3000);
+  }, [navigation]);
 
   return (
     <>

@@ -5,6 +5,7 @@ import Settings from '../../containers/Settings';
 import Dashboard from '../../containers/Dashboard';
 import Notifications from '../../containers/Notifications';
 import {withBadge} from 'react-native-elements';
+import I18n from '../../translations';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,9 +32,27 @@ const TabNavigation = () => {
           }
         },
       })}>
-      <Tab.Screen name="Dashboard" component={Dashboard} />
-      <Tab.Screen name="Notifications" component={Notifications} />
-      <Tab.Screen name="Settings" component={Settings} />
+      <Tab.Screen
+        name="Dashboard"
+        options={{
+          title: I18n.t('dashboard.dashboard'),
+        }}
+        component={Dashboard}
+      />
+      <Tab.Screen
+        name="Notifications"
+        options={{
+          title: I18n.t('notifications.notifications'),
+        }}
+        component={Notifications}
+      />
+      <Tab.Screen
+        name="Settings"
+        options={{
+          title: I18n.t('settings.settings'),
+        }}
+        component={Settings}
+      />
     </Tab.Navigator>
   );
 };

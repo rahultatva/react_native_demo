@@ -6,11 +6,14 @@ import {
 } from '@react-navigation/drawer';
 import {CommonActions} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {View, Text, Image, AsyncStorage} from 'react-native';
+import {useDispatch} from 'react-redux';
+import {View, Image, Text} from 'react-native';
 import styles from './styles';
 import {color} from '../../assets/styles/color';
+import I18n from '../../translations';
 
 const SidebarLayout = props => {
+  const dispatch = useDispatch();
   return (
     <DrawerContentScrollView {...props}>
       <ScrollView>
@@ -27,8 +30,8 @@ const SidebarLayout = props => {
           </Text>
           <Text
             style={{color: color.saphire}}
-            onPress={() => {
-              AsyncStorage.removeItem('UserInfo');
+            onPress={async () => {
+              await dispatch({type: 'USER_LOGOUT'});
               props.navigation.dispatch(
                 CommonActions.reset({
                   index: 0,
@@ -41,7 +44,7 @@ const SidebarLayout = props => {
                 }),
               );
             }}>
-            Logout
+            {I18n.t('settings.logout')}
           </Text>
         </View>
         <DrawerItemList {...props} />

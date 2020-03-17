@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 import {color} from '../../assets/styles/color';
 
 const styles = StyleSheet.create({
+  container: {
+    marginLeft: 30,
+    marginRight: 30,
+  },
   icon: {
     position: 'absolute',
     right: 20,

@@ -34,7 +34,14 @@ target 'react_native_demo' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
+
+  pod 'RNAWSCognito', :path => '../node_modules/amazon-cognito-identity-js'
+
+  pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
   target 'react_native_demoTests' do
     inherit! :search_paths

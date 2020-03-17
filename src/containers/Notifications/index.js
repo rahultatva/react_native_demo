@@ -1,9 +1,10 @@
 import React from 'react';
-import Topbar from '../../components/Header';
 import {ListItem} from 'react-native-elements';
 import {View} from 'react-native';
 import {color} from '../../assets/styles/color';
 import {ScrollView} from 'react-native-gesture-handler';
+import Topbar from '../../components/Header';
+import I18n from '../../translations';
 
 const Notifications: () => React$Node = ({navigation}) => {
   const list = [
@@ -110,7 +111,10 @@ const Notifications: () => React$Node = ({navigation}) => {
   ];
   return (
     <>
-      <Topbar navigation={navigation} name="Notifications" />
+      <Topbar
+        navigation={navigation}
+        name={I18n.t('notifications.notifications')}
+      />
       <ScrollView>
         <View>
           {list.map((l, i) => (

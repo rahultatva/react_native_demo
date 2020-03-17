@@ -5,6 +5,7 @@ import Home from '../../containers/Home';
 import Profile from '../../containers/Profile';
 import {createStackNavigator} from '@react-navigation/stack';
 import SidebarLayout from './SidebarLayout';
+import I18n from '../../translations';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -25,8 +26,20 @@ const AppNavigation = () => {
           return <Icon name={iconName} size={size} color={color} />;
         },
       })}>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen
+        name="Home"
+        options={{
+          title: I18n.t('navigation.home'),
+        }}
+        component={Home}
+      />
+      <Stack.Screen
+        name="Profile"
+        options={{
+          title: I18n.t('profile.profile'),
+        }}
+        component={Profile}
+      />
     </Drawer.Navigator>
   );
 };

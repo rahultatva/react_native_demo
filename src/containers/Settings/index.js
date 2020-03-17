@@ -1,30 +1,31 @@
 import React from 'react';
 import Topbar from '../../components/Header';
 import {ListItem} from 'react-native-elements';
-import { View } from 'react-native';
+import {View} from 'react-native';
+import I18n from '../../translations';
 
 const Settings: () => React$Node = ({navigation}) => {
   const list = [
     {
-      title: 'Appointments',
+      title: I18n.t('settings.appointments'),
       icon: 'av-timer',
     },
     {
-      title: 'Trips',
+      title: I18n.t('settings.trips'),
       icon: 'flight-takeoff',
     },
     {
-      title: 'Passwords',
+      title: I18n.t('settings.passwords'),
       icon: 'settings',
     },
     {
-      title: 'Updates',
+      title: I18n.t('settings.updates'),
       icon: 'update',
     },
   ];
   return (
     <>
-      <Topbar navigation={navigation} name="Settings" />
+      <Topbar navigation={navigation} name={I18n.t('settings.settings')} />
       <View>
         {list.map((item, i) => (
           <ListItem
